@@ -1,7 +1,32 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 const TextUtils = () => {
+  ``;
   const [text, setText] = useState("");
+  const [readingSpeed, SetReadingSpeed] = useState(null);
+
+  //get counts of words ka function
+  const HandleGetCountsOfWords = () => {
+    return text.trim().split(/\s+/).filter(Boolean).length; // (/\s+/) it is a regx like email / password
+  }; //filter(Boolean) will remove any false values like multiple times of space in btw two words
+
+  // reading speed function
+  const handleReadingSpeed = () => {
+    const totalWords = HandleGetCountsOfWords();
+
+    const readingTimeinMinutes = totalWords / 200;
+    if (totalWords === 0) {
+      SetReadingSpeed("0 Mimutes"); // agar words = 0 ho jaye tab
+      return;
+    } 
+    if (readingTimeinMinutes < 1) {
+      // if reading speed under min ha to convert it to seconds
+      const seconds = Math.ceil(readingTimeinMinutes * 60);
+      SetReadingSpeed(`${seconds}"s"`); // `` to stop (obj + str) bug
+    } else {
+      SetReadingSpeed(`${readingTimeinMinutes.toFixed(1) + " Minutes"}`);
+    }
+  };
   return (
     <>
       <div className="container p-3">
@@ -10,12 +35,13 @@ const TextUtils = () => {
           <textarea
             onChange={(e) => {
               setText(e.target.value);
+              SetReadingSpeed(null);
             }}
             className="form-control"
             placeholder="Enter something very amazing here..."
             id="floatingTextarea2"
             style={{ height: 100 }}
-            defaultValue={""}
+           value={text}
           />
           <label htmlFor="floatingTextarea2">
             Enter something very amazing here...
@@ -54,16 +80,17 @@ const TextUtils = () => {
           </button>
           <button
             onClick={() => {
-           
+              handleReadingSpeed();
             }}
             type="button"
             className="btn btn-success m-1"
           >
-            Reading Speed <i className="ri-dashboard-3-fill"></i>
+            Reading Speed <i className="ri-dashboard-3-fill "></i>
           </button>
           <button
             onClick={() => {
               setText("");
+              SetReadingSpeed(null);
             }}
             type="button"
             className="btn btn-danger m-1"
@@ -74,11 +101,11 @@ const TextUtils = () => {
         </section>
         <section className="container">
           <ul>
-          
             <li className="text-success fs-4">Total Letters - {text.length}</li>
             <li className="text-info fs-4">
-              Total Words - {text.trim().split(/\s+/).filter(Boolean).length}
+              Total Words - {HandleGetCountsOfWords()}
             </li>
+            <li className="text-danger fs-4">Reading Time = {readingSpeed} </li>
           </ul>
         </section>
       </div>
