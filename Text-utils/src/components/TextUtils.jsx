@@ -1,47 +1,33 @@
 import React from "react";
-<<<<<<< HEAD
-import { useState,useEffect } from "react";
-=======
 import { useState } from "react";
-import "../components/TextUtils.css"
->>>>>>> 4cd8ef7 (First commit)
+import "../components/TextUtils.css";
+
 const TextUtils = () => {
-  ``;
   const [text, setText] = useState("");
   const [readingSpeed, SetReadingSpeed] = useState(null);
 
   //get counts of words ka function
   const HandleGetCountsOfWords = () => {
-    return text.trim().split(/\s+/).filter(Boolean).length; // (/\s+/) it is a regx like email / password
-  }; //filter(Boolean) will remove any false values like multiple times of space in btw two words
+    return text.trim().split(/\s+/).filter(Boolean).length; 
+  }; 
 
   // reading speed function
   const handleReadingSpeed = () => {
     const totalWords = HandleGetCountsOfWords();
-
     const readingTimeinMinutes = totalWords / 200;
+
     if (totalWords === 0) {
-<<<<<<< HEAD
-      SetReadingSpeed("0 Mimutes"); // agar words = 0 ho jaye tab
-      return;
-    } 
-    if (readingTimeinMinutes < 1) {
-      // if reading speed under min ha to convert it to seconds
-      const seconds = Math.ceil(readingTimeinMinutes * 60);
-      SetReadingSpeed(`${seconds}"s"`); // `` to stop (obj + str) bug
-=======
-      SetReadingSpeed("0 Minutes"); // agar words = 0 ho jaye tab
+      SetReadingSpeed("0 Minutes"); 
       return;
     }
     if (readingTimeinMinutes < 1) {
-      // if reading speed under min ha to convert it to seconds
       const seconds = Math.ceil(readingTimeinMinutes * 60);
-      SetReadingSpeed(`${seconds } seconds`); // `` to stop (obj + str) bug
->>>>>>> 4cd8ef7 (First commit)
+      SetReadingSpeed(`${seconds} seconds`); 
     } else {
       SetReadingSpeed(`${readingTimeinMinutes.toFixed(1) + " Minutes"}`);
     }
   };
+
   return (
     <>
       <div className="container p-3">
@@ -56,11 +42,7 @@ const TextUtils = () => {
             placeholder="Enter something very amazing here..."
             id="floatingTextarea2"
             style={{ height: 100 }}
-<<<<<<< HEAD
-           value={text}
-=======
             value={text}
->>>>>>> 4cd8ef7 (First commit)
           />
           <label htmlFor="floatingTextarea2">
             Enter something very amazing here...
