@@ -1,16 +1,52 @@
-# React + Vite
+🚀 Text Utils
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Text Utils is a modern React-based text utility application that helps users quickly analyze and transform text with a clean and user-friendly interface.
 
-Currently, two official plugins are available:
+✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 🔤 Convert text to UPPERCASE
+- 🔡 Convert text to lowercase
+- 📊 Accurate Word Count
+- 📝 Character Count
+- ⏱️ Estimated Reading Time
+- 👀 Live Text Preview
+- 🗑️ Clear Text Instantly
 
-## React Compiler
+🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React.js
+- JavaScript (ES6+)
+- Bootstrap 5
 
-## Expanding the ESLint configuration
+🚀 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+git clone https://github.com/RoushanGoswami/text-utils.git
+cd text-utils
+npm install
+npm start
+
+The application will run locally at:
+
+http://localhost:3000
+
+🎯 Key Learnings
+
+This project demonstrates:
+
+- React Functional Components
+- React Hooks ("useState")
+- State Management
+- Event Handling
+- Real-Time UI Updates
+- Text Processing Logic
+- Responsive UI Design
+
+📌 Project Purpose
+
+Text Utils was built to provide a fast and efficient way to perform common text operations while strengthening core React development skills and modern frontend practices.
+
+👨‍💻 Developer
+
+Roushan Goswami
+
+GitHub: @RoushanGoswami
