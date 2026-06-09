@@ -1,0 +1,108 @@
+/* Global */
+body {
+  background-color: #1b262c;
+  color: #bbe1fa;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Main Container */
+.container {
+  max-width: 900px;
+}
+
+/* Heading */
+h1 {
+  color: #bbe1fa;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Textarea Section */
+.form-floating {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.form-control {
+  background-color: #0f4c75 !important;
+  color: #bbe1fa !important;
+  border: 1px solid #3282b8 !important;
+  border-radius: 12px !important;
+}
+
+.form-control:focus {
+  border-color: #bbe1fa !important;
+  box-shadow: 0 0 0 0.15rem rgba(187, 225, 250, 0.2) !important;
+}
+
+.form-floating label {
+  color: #bbe1fa !important;
+}
+
+/* Preview Box */
+.shadow.rounded {
+  background-color: #0f4c75;
+  color: #bbe1fa;
+  border: 1px solid #3282b8 !important;
+  border-radius: 12px !important;
+  min-height: 80px;
+}
+
+/* Buttons */
+.btn {
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 500;
+  padding: 8px 18px;
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-info {
+  background-color: #3282b8 !important;
+  color: white !important;
+}
+
+.btn-warning {
+  background-color: #4d6f89 !important;
+  color: white !important;
+}
+
+.btn-success {
+  background-color: #2c7a7b !important;
+}
+
+.btn-danger {
+  background-color: #d9534f !important;
+}
+
+/* Stats Section */
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+ul li {
+  background-color: #0f4c75;
+  margin: 10px 0;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border-left: 4px solid #3282b8;
+  color: #bbe1fa !important;
+}
+
+/* Section Headings */
+h3 {
+  color: #bbe1fa;
+  font-weight: 600;
+}
+
+/* Divider */
+hr {
+  border-color: #3282b8;
+  opacity: 0.4;
+}

@@ -1,5 +1,10 @@
 import React from "react";
+<<<<<<< HEAD
 import { useState,useEffect } from "react";
+=======
+import { useState } from "react";
+import "../components/TextUtils.css"
+>>>>>>> 4cd8ef7 (First commit)
 const TextUtils = () => {
   ``;
   const [text, setText] = useState("");
@@ -16,6 +21,7 @@ const TextUtils = () => {
 
     const readingTimeinMinutes = totalWords / 200;
     if (totalWords === 0) {
+<<<<<<< HEAD
       SetReadingSpeed("0 Mimutes"); // agar words = 0 ho jaye tab
       return;
     } 
@@ -23,6 +29,15 @@ const TextUtils = () => {
       // if reading speed under min ha to convert it to seconds
       const seconds = Math.ceil(readingTimeinMinutes * 60);
       SetReadingSpeed(`${seconds}"s"`); // `` to stop (obj + str) bug
+=======
+      SetReadingSpeed("0 Minutes"); // agar words = 0 ho jaye tab
+      return;
+    }
+    if (readingTimeinMinutes < 1) {
+      // if reading speed under min ha to convert it to seconds
+      const seconds = Math.ceil(readingTimeinMinutes * 60);
+      SetReadingSpeed(`${seconds } seconds`); // `` to stop (obj + str) bug
+>>>>>>> 4cd8ef7 (First commit)
     } else {
       SetReadingSpeed(`${readingTimeinMinutes.toFixed(1) + " Minutes"}`);
     }
@@ -41,7 +56,11 @@ const TextUtils = () => {
             placeholder="Enter something very amazing here..."
             id="floatingTextarea2"
             style={{ height: 100 }}
+<<<<<<< HEAD
            value={text}
+=======
+            value={text}
+>>>>>>> 4cd8ef7 (First commit)
           />
           <label htmlFor="floatingTextarea2">
             Enter something very amazing here...
