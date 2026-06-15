@@ -1,36 +1,31 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router";
-import Login from "./screens/Login";
+import { Routes, Route , Link} from "react-router";
 import Home from "./screens/Home";
-import About from "./screens/About";
-import Experience from "./screens/Experience";
-import Skills from "./screens/Skills";
 import Contact from "./screens/Contact";
+import Experience from "./screens/Experience"
+import Education from "./screens/Education"
+import About from "./screens/About"
+import Skills from "./screens/Skills"
 
-const credentials = {
-  email: "admin@gmail.com",
-  password: "123456",
-};
 
 export default function App() {
   return (
     <>
-      {/* <nav>
-<Link to = {"/login"}>Login</Link>
-<Link to = {"/home"}>Home</Link>
+    <nav>
+<Link to = {"/"}>Home</Link>
 <Link to = {"/about"}>About</Link>
+<Link to = {"/education"}>Education</Link>
 <Link to = {"/experience"}>Experience</Link>
 <Link to = {"/skills"}>Skills</Link>
 <Link to = {"/contact"}>Contact</Link>
-    </nav> */}
+    </nav>
       <Routes>
-        <Route path="/" element={<Login credential={credentials} />} />
-        {/* passed it to work on authentication  */}
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/experience" element={<Experience />} />
+        <Route path="/education" element={<Education />} />
       </Routes>
     </>
   );
