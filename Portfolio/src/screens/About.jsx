@@ -32,7 +32,7 @@ export default function About() {
                     engineering teams.
                   </p>
                   <p className="card-text">
-                  
+                  p
                   </p>
                 </div>
               </div>
@@ -40,6 +40,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      {/* hello */}
     </>
   );
 }
