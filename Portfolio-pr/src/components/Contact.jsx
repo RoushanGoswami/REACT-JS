@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react'
 
 export default function Contact() {
-  return (
-    <section className="container">
+  return<>
+ <section className="container my-3">
   <h1 className='text-center fs-1 text-black fw-bold'>Contact</h1>
 
       <div className="container col-6">
-        <>
+
           <div className="mb-3 text-start fw-bold">
             <label htmlFor="exampleFormControlInput1" className="form-label ">
               Name
@@ -40,13 +40,13 @@ export default function Contact() {
               defaultValue={""}
             />
           </div>
-          <div className="align-start">
+          <div className="d-flex justify-content-center">
             <button type="button" className="btn btn-outline-primary">
               Submit
             </button>
           </div>
-        </>
+
       </div>
     </section>
-  );
+  </>
 }
