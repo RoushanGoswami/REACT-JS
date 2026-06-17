@@ -19,6 +19,9 @@ export default function Signin({credential}) {
       user.email == credential.email &&
       user.password == credential.password
     ) {
+      localStorage.setItem("email",user.email);
+      localStorage.setItem("password",user.password);
+
       navigate("/home");
     } else {
       alert("email or password is wrong !");

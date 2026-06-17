@@ -1,8 +1,25 @@
-import React, { Children } from 'react'
-
+import React, { useState, useEffect } from "react";
+import App from '../App'
+import Signin from '../screens/Signin'
 export default function ProtectedRoute(children) {
-    const getCredential
-  if(credential){
-    return <>{children}</>
+  const [user, setUser] = useState({});
+  const getcredential = () => {
+    const email = localStorage.getItem("email");
+    const password = localStorage.getItem("password");
+    setUser({ email, password });
+  };
+
+  useEffect(() => {
+    getcredential();
+  }, []);
+
+  if (credential.email==user.email && credential.password == user.password) {
+    return <>{children}</>;
   }
+
+  return (
+    <>
+      <h1>hello</h1>
+    </>
+  );
 }

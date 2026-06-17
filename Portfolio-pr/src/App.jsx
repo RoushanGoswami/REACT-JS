@@ -12,7 +12,7 @@ export default function App() {
     <>
       <Routes>
         <Route path="/" element={<Signin credential={credential} />} />
-        <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path="/home" element={<Home/>} />
       </Routes>
       {/* <Home/> */}
     </>

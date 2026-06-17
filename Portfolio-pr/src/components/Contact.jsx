@@ -41,7 +41,7 @@ export default function Contact() {
             />
           </div>
           <div className="d-flex justify-content-center">
-            <button type="button" className="btn btn-outline-primary">
+            <button type="button" className="btn btn-outline-primary w-100">
               Submit
             </button>
           </div>

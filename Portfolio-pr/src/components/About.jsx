@@ -12,8 +12,8 @@ export default function About() {
               </div>
               <div className="col-md-8 ">
                 <div className="card-body">
-                  <h5 className="card-title text-center">💻 About Me</h5>
-                  <p className="card-text text-center">
+                  <h5 className="card-title text-start">💻 About Me</h5>
+                  <p className="card-text text-start">
                     <b className="fs-3"> Hi, I’m Roushan!</b>
                     <br /> I am a full-stack developer who loves building
                     high-quality web applications that solve real-world
