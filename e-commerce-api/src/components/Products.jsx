@@ -4,6 +4,7 @@ export default function Products() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [store, setStore] = useState([]);
+  const [pagination, setPagination] = useState({ start: 0, end: 9, page: 1 });
   const handleFetchProducts = async () => {
     const res = await axios.get("https://dummyjson.com/products");
     setProducts(res.data.products);
@@ -39,12 +40,24 @@ export default function Products() {
       store.filter((product) => product.price >= Number(e.target.value)), // product price is compared and then if condition is true the it returns
     );
   };
+
+  const handlePagination = (x) => {
+    let page;
+    if (x == "") {
+      page = 1;
+    } else {
+      page = Number(x);
+    }
+    const start = (page - 1) * 10;
+    const end = start + 9;
+    setPagination({ ...pagination, start, end });
+  };
   useEffect(() => {
     handleFetchProducts();
   }, []);
   return (
     <>
-      <nav className="navbar bg-body-tertiary p-3 m-2 rounded shadow mb-3 bg-transparent sticky-top">
+      <div className="navbar bg-body-tertiary p-3 m-2 rounded shadow mb-3 bg-transparent sticky-top">
         <div className="container-fluid">
           <a className="navbar-brand">RGMart.com</a>
           <div className="d-flex">
@@ -84,39 +97,68 @@ export default function Products() {
             </div>
           </div>
         </div>
-      </nav>
+      </div>
 
       <div className="conatiner row justify-content-evenly">
         {products.map((product, i) => {
-          return (
-            <div
-              key={i}
-              className="card shadow rounded m-2"
-              style={{ width: "18rem" }}
-            >
-              <img src={product.images[0]} className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">{product.title}</h5>
+          if (i >= pagination.start && i <= pagination.end) {
+            return (
+              <div
+                key={i}
+                className="card shadow rounded m-2"
+                style={{ width: "18rem" }}
+              >
+                <img
+                  src={product.images[0]}
+                  className="card-img-top"
+                  alt="..."
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{product.title}</h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">{product.category}</li>
+                  <li className="list-group-item">$ {product.price}</li>
+                  <li className="list-group-item">{product.rating}⭐</li>
+                </ul>
+                <div className="card-body">
+                  <button
+                    onClick={() => {
+                      alert("Product is Added to your Cart");
+                    }}
+                    type="button"
+                    className="btn btn-warning w-100"
+                  >
+                    Add to cart
+                  </button>
+                </div>
               </div>
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">{product.category}</li>
-                <li className="list-group-item">$ {product.price}</li>
-                <li className="list-group-item">{product.rating}⭐</li>
-              </ul>
-              <div className="card-body">
-                <button
-                  onClick={() => {
-                    alert("Product is Added to your Cart");
-                  }}
-                  type="button"
-                  className="btn btn-warning w-100"
-                >
-                  Add to cart
-                </button>
-              </div>
-            </div>
-          );
+            );
+          }
+          return;
         })}
+        <div className="container d-flex justify-content-center p-2 m-2 flex-column">
+          <h6>Go to page </h6>
+          <div aria-label="Page navigation example">
+            <ul className="pagination d-flex justify-content-center">
+              <li className="page-item" onChange={() => handlePagination(1)}>
+                <a className="page-link" href="#">
+                  1
+                </a>
+              </li>
+              <li className="page-item" onChange={() => handlePagination(2)}>
+                <a className="page-link" href="#">
+                  2
+                </a>
+              </li>
+              <li className="page-item" onChange={() => handlePagination(3)}>
+                <a className="page-link" href="#">
+                  3
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </>
   );
