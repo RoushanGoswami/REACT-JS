@@ -1,7 +1,9 @@
-import React from 'react'
-import Products from './components/Products'
+import React from "react";
+import Products from "./components/Products";
 export default function App() {
-  return <>
-  <Products/>
-  </>
+  return (
+    <>
+      <Products />
+    </>
+  );
 }
