@@ -1,5 +1,29 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios, { toFormData } from "axios";
+
+// Date Function
+const getDate = () => {
+  const today = new Date();
+  const day = today.getDate(); // date
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const monthName = months[today.getMonth()];
+  const year = today.getFullYear();
+
+  return `${day} ${monthName},${year}`;
+};
 
 export default function home() {
   // useState Declarations
@@ -8,7 +32,16 @@ export default function home() {
   //get api of Notes
   const handleFetchNotes = async () => {
     const res = await axios.get("http://localhost:3000/notes");
-    setNotes(res.data);
+    const colorWithNotes = res.data.map((note) => {
+      //get random notes
+      const str = Math.floor(Math.random() * 16581375).toString(16);
+      return {
+        ...note,
+        coloredNotes: `#${str.padStart(6, "0")}`,
+        dateCreated: getDate(),
+      };
+    });
+    setNotes(colorWithNotes);
   };
 
   // get input notes
@@ -28,6 +61,7 @@ export default function home() {
     const res = await axios.delete("http://localhost:3000/notes/" + id);
     handleFetchNotes(); // after delete fresh data will be showed
   };
+
   //update notes
   const updateField = (x) => setData(x); // for just to onclick on edit btn it displays the current data
   //in the input fields
@@ -35,6 +69,7 @@ export default function home() {
   const handleUpdateNotes = async () => {
     const res = await axios.put("http://localhost:3000/notes/" + data.id, data);
     handleFetchNotes();
+    setData({ title: "", text: "" });
   };
   useEffect(() => {
     handleFetchNotes();
@@ -90,27 +125,37 @@ export default function home() {
         {notes.length == 0 ? (
           <p className="text-secondary">No Notes Added Yet !</p>
         ) : (
-          notes.map((note, i) => (
-            <div key={i} className="row d-flex justify-content-center gap-3 ">
-              <div className="card" style={{ width: "18rem" }}>
-                <div className="card-body">
-                  <h5 className="card-title">
-                    {note.title}{" "}
-                    <i
-                      onClick={() => updateField(note)}
-                      className="ri-edit-box-fill text-warning fs-4 "
-                    ></i>
-                    <i
-                      onClick={() => handleDeleteNotes(note.id)}
-                      className="ri-delete-bin-fill text-danger fs-4 "
-                    ></i>
-                  </h5>
+          <div className="row g-4">
+            {notes.map((note, i, str) => (
+              <div key={i} className="col-12 col-sm-6 col-md-4 ">
+                <div
+                  className="card h-100"
+                  style={{ width: "18rem", backgroundColor: note.coloredNotes }}
+                >
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      {note.title}{" "}
+                      <i
+                        onClick={() => updateField(note)}
+                        className="ri-edit-box-fill text-warning fs-4 "
+                        style={{ cursor: "pointer" }}
+                      ></i>
+                      <i
+                        onClick={() => handleDeleteNotes(note.id)}
+                        className="ri-delete-bin-fill text-danger fs-4 "
+                        style={{ cursor: "pointer" }}
+                      ></i>
+                    </h5>
 
-                  <p className="card-text text-start">{note.text}</p>
-                </div>
-              </div>{" "}
-            </div>
-          ))
+                    <p className="card-text text-start">{note.text}</p>
+                    <div>
+                      <p className="text-light">{note.dateCreated}</p>
+                    </div>
+                  </div>
+                </div>{" "}
+              </div>
+            ))}
+          </div>
         )}
       </section>
     </>

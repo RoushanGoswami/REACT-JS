@@ -1,4 +1,30 @@
 {
-  "notes": [],
+  "notes": [
+    {
+      "title": "efgwg",
+      "text": "grgerg",
+      "id": "4d22VwpBC2k"
+    },
+    {
+      "text": "gwrgwrgwg",
+      "title": "wegwr",
+      "id": "W5e7fDGK7Bo"
+    },
+    {
+      "title": "wdqwd",
+      "text": "dqwdd",
+      "id": "sZP4BbSzZ4w"
+    },
+    {
+      "title": "wdqd",
+      "text": "wdd",
+      "id": "0wvF191evsw"
+    },
+    {
+      "title": "svfwefgw",
+      "text": "fwefwefwef",
+      "id": "FZhzDpT4ZGk"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
