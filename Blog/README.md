@@ -2,6 +2,7 @@
 
 A modern and responsive **Blog Management Application** built with **React.js** and **Redux Toolkit**. This project demonstrates complete **CRUD (Create, Read, Update, Delete)** operations while implementing centralized state management using Redux Toolkit. It also includes **Search**, **Category Filter**, and **Local Storage** for persistent data.
 
+video link : https://drive.google.com/file/d/1aMuBRjLh4g3h0GmQE45my0nl5mimSP3Z/view?usp=sharing
 ---
 
 ## 🚀 Features
