@@ -78,8 +78,7 @@ const Todos = () => {
                   className="ri-edit-circle-fill fs-4 ms-3 text-success"
                 ></i>
               </p>
-              g
-            </div>
+                    </div>
           ))}
         </div>
       </section>
