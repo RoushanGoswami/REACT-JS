@@ -1,4 +1,25 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "alo1213@gmail.com",
+      "password": "123456789",
+      "id": "XDBgKs7S7Tw"
+    },
+    {
+      "email": "gaga12@gmail.com",
+      "password": "123456789",
+      "id": "IYk0n6M3ZqU"
+    },
+    {
+      "email": "gaga12@gmail.com",
+      "password": "123456789",
+      "id": "-hsRRHsgsMQ"
+    },
+    {
+      "email": "g12@.com",
+      "password": "123456789",
+      "id": "TISFwdqeEdU"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

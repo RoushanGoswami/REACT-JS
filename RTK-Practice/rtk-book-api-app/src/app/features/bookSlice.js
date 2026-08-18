@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { act } from "react";
 
 // first do the api works like fetch , post , and delete using CreateAysncThunk
 
